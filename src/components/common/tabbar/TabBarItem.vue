@@ -6,7 +6,7 @@
     <div v-else class="de">
       <slot name="item-icon-selected"></slot>
     </div>
-    <div :style="activeStyle">
+    <div :class={active:isActive}>
     <slot name="item-text"></slot>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     itemClick () {
-      this.$router.replace(this.link)
+      this.$router.replace(this.link).catch(()=>{});
     }
   }
 }
