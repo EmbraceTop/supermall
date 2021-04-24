@@ -1,10 +1,11 @@
 <template>
-  <div>
+
     <div>
-      Hello my supermall
+      <router-view/>
+      <main-tab-bar></main-tab-bar>
     </div>
-    <router-view/>
-  </div>
+
+
 </template>
 
 <script>

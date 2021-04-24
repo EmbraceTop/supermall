@@ -10,22 +10,22 @@
     <template v-slot:item-icon-selected><img src="assets/img/tabbar/category_active.svg" alt=""></template>
     <template v-slot:item-text><div>分类</div></template>
   </tab-bar-item>
-  <tab-bar-item link="/trolley" activeColor="pink">
+  <tab-bar-item link="/cart" activeColor="pink">
     <template v-slot:item-icon><img src="assets/img/tabbar/cart.svg" alt=""></template>
     <template v-slot:item-icon-selected><img src="assets/img/tabbar/cart_active.svg" alt=""></template>
     <template v-slot:item-text><div>购物车</div></template>
   </tab-bar-item>
   <tab-bar-item link="/user">
     <template v-slot:item-icon><img src="assets/img/tabbar/profile.svg" alt=""></template>
-    <template v-slot:item-icon-selected><img src="@/assets/img/icon/profile_active.svg" alt=""></template>
+    <template v-slot:item-icon-selected><img src="@/assets/img/tabbar/profile_active.svg" alt=""></template>
     <template v-slot:item-text><div>我的</div></template>
   </tab-bar-item>
 </tab-bar>
 </template>
 
 <script>
-import TabBar from '@/components/tabbar/TabBar.vue'
-import TabBarItem from '@/components/tabbar/TabBarItem.vue'
+import TabBar from 'components/common/tabbar/TabBar.vue'
+import TabBarItem from 'components/common/tabbar/TabBarItem.vue'
 
 export default {
   components:{
