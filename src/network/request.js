@@ -14,7 +14,7 @@ export function request (config) {
         return config
     }, err => {
         console.log(err)
-    });
+    })
 
     // 2.2响应拦截
     instance.interceptors.response.use(res => {

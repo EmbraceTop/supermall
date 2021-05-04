@@ -23,10 +23,11 @@
           },
           speed: 1000,
           autoplay: {
-            delay: 1000
+            delay: 1000,
+            disableOnInteraction: false
           },
           loop: true,
-          disableOnInteraction: false
+
           // effect: 'cube'
         },
       }
