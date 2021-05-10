@@ -1,16 +1,16 @@
 <template>
   <div class="goods-list">
-    <goods-list-item v-for="item in goods" :key="item.page" :goodsItems="item" ></goods-list-item>
+    <detail-recommend-list-item v-for="(item,index) in recommendInfo" :key="index" :goodsItems="item" ></detail-recommend-list-item>
   </div>
 </template>
 
 <script>
-import GoodsListItem from './GoodsListItem'
+import DetailRecommendListItem from './DetailRecommendListItem'
 
 export default {
   name: "GoodsList",
   props:{
-    goods:{
+    recommendInfo:{
       type:Array,
       default() {
         return []
@@ -18,7 +18,7 @@ export default {
     }
   },
   components:{
-    GoodsListItem
+    DetailRecommendListItem
   }
 }
 </script>

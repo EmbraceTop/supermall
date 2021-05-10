@@ -27,7 +27,7 @@ export default {
 .recommend {
   position: relative;
   left: 0;
-  top: 15px;
+  top: 44px;
   display: flex;
   height: 110px;
   width: 100%;

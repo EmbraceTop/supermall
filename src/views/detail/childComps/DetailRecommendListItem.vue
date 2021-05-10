@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item" @click="itemClick">
-    <img :src="goodsItems.show.img" alt="">
+  <div class="goods-item">
+    <img :src="goodsItems.image" alt="">
     <p>{{goodsItems.title}}</p>
     <div class="remain">
     <span class="price">{{'￥'+goodsItems.price}}</span>
@@ -21,9 +21,7 @@ export default {
     }
   },
   methods:{
-    itemClick() {
-      this.$router.push('/detail/' + this.goodsItems.iid)
-    }
+
   }
 }
 </script>

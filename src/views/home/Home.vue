@@ -2,17 +2,20 @@
   <div id="home">
     <nav-bar class="home-nav"><template v-slot:center><p>购物街</p></template></nav-bar>
 
-    <scroll class="content" ref="scroll">
-    <home-swiper :swiperItem="banner"></home-swiper>
+    <scroll class="content"
+            ref="scroll"
+            :probe-type="3"
+            :pullUpLoad="true"
+            @scrolling="scrollContent"
+            @loading="loadContent">
+    <home-swiper :swiperItem="banner" class="swiper"></home-swiper>
     <recommend-view :recommendsList="recommends"></recommend-view>
     <popular-view></popular-view>
-    <tab-control class="tab-control"
-                 :titles="['流行','新款','精选']"
-                 @tabClick="tabClick"></tab-control>
+    <tab-control :titles="['流行','新款','精选']" @tabClick="tabClick"></tab-control>
     <goods-list :goods="showGoods"></goods-list>
     </scroll>
 
-
+    <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
@@ -25,6 +28,7 @@ import Scroll from 'components/common/scroll/Scroll'
 
 import NavBar from 'components/common/navbar/NavBar'
 import TabControl from 'components/content/tabcontrol/TabControl'
+import BackTop from 'components/content/backtop/backTop'
 
 import {getHomeMultidata, getHomeGoods} from 'network/home.js'
 
@@ -39,6 +43,7 @@ export default {
     PopularView,
     TabControl,
     GoodsList,
+    BackTop
   },
   data() {
     return {
@@ -51,13 +56,14 @@ export default {
         'new': {page:0 ,list:[]},
         'sell': {page:0 ,list:[]},
       },
-      currentType: 'pop'
+      currentType: 'pop',
+      isShowBackTop: false,
     }
   },
   computed: {
     showGoods () {
       return this.goods[this.currentType].list
-    }
+    },
   },
   methods: {
     //事件监听相关的方法
@@ -73,6 +79,19 @@ export default {
           this.currentType = 'sell';
           break
       }
+    },
+
+    backClick() {
+      this.$refs.scroll.scrollTo( 0, 0, 500)
+    },
+
+    scrollContent(position) {
+      // 1. 判断BackTop是否显示
+      this.isShowBackTop = Math.abs(position.y) > 1000;
+    },
+
+    loadContent() {
+      this.getHomeGoods(this.currentType)
     },
 
     //网络请求相关的方法
@@ -116,12 +135,13 @@ export default {
     color: #fff;
   }
 
-  .tab-control {
-    position: sticky;
+  .swiper {
+    position: relative;
     top: 44px;
   }
 
   .content {
+    position: relative;
     height: calc( 100vh - 44px );
   }
 </style>

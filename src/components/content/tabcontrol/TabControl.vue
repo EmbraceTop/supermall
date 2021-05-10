@@ -34,13 +34,12 @@ export default {
 <style scoped>
 .tab-control {
   display: flex;
-  position: relative;
-  top: 14px;
   text-align: center;
+  position: relative;
+  top: 44px;
   height: 40px;
   font-size: 15px;
   background-color: #fff;
-  z-index: 9;
 }
 
 .tab-control-item {

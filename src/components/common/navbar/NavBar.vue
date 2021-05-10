@@ -28,7 +28,7 @@ export default {
   }
 
   .left, .right {
-    width: 60px;
+    width: 12%;
   }
 
   .center {
