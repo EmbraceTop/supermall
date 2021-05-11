@@ -22,16 +22,21 @@ export default {
   components:{
     NavBar
   },
+  props:{
+    currentIndex:{
+      type: Number,
+      default:0
+    }
+  },
+
   data() {
     return {
       iid: null,
       title: ['商品','参数','评论','推荐'],
-      currentIndex: 0,
     }
   },
   methods: {
     itemClick(index) {
-      this.currentIndex = index;
       this.$emit('navClick',index)
     },
     backClick() {

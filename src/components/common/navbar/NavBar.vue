@@ -20,10 +20,7 @@ export default {
     text-align: center;
     box-shadow: 0 1px 1px rgba(100,100,100, .2);
     overflow: hidden;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
+    position: relative;
     z-index: 10;
   }
 

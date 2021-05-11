@@ -137,7 +137,7 @@ export default {
 
   .swiper {
     position: relative;
-    top: 44px;
+    top: 0px;
   }
 
   .content {
