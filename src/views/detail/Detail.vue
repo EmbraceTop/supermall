@@ -14,7 +14,7 @@
     <detail-comment-info :comment-info="commentInfo" ref="comment"></detail-comment-info>
     <detail-recommend-list :recommend-info="recommendInfo" ref="recommend"></detail-recommend-list>
     </scroll>
-    <detail-bottom-bar></detail-bottom-bar>
+    <detail-bottom-bar @addToCart="addToCart"></detail-bottom-bar>
     <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
@@ -101,6 +101,16 @@ export default {
       }
     };
     this.isShowBackTop = Math.abs(position.y) > BACKTOP_DISTANCE
+  },
+  addToCart() {
+    const product = {}
+    product.image = this.topImages[0];
+    product.title = this.goods.title;
+    product.desc = this.goods.desc;
+    product.price = this.goods.realPrice;
+    product.iid = this.iid
+
+    this.$store.dispatch('addCart',product)
   }
 },
   created() {
