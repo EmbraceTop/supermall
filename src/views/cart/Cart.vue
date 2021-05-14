@@ -36,7 +36,7 @@ export default {
 <style scoped>
 #cart {
   position: relative;
-  padding: 5px;
+
   height: 100vh;
 }
 
@@ -54,7 +54,7 @@ export default {
   background-color: #fff;
   border-top: 1px solid #ccc;
   height: 40px;
-  bottom: 7px;
+  bottom: 2px;
 }
 .em {
   clear: both;

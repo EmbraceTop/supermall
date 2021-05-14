@@ -15,7 +15,7 @@
     <template v-slot:item-icon-selected><img src="~assets/img/tabbar/cart_active.svg" alt=""></template>
     <template v-slot:item-text><div>购物车</div></template>
   </tab-bar-item>
-  <tab-bar-item link="/user">
+  <tab-bar-item link="/profile">
     <template v-slot:item-icon><img src="~assets/img/tabbar/profile.svg" alt=""></template>
     <template v-slot:item-icon-selected><img src="~assets/img/tabbar/profile_active.svg" alt=""></template>
     <template v-slot:item-text><div>我的</div></template>

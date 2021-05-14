@@ -5,7 +5,8 @@
     <div class="cart-list">
       <cart-list-item v-for="(item,index) in cartList"
                       :key="index"
-                      :product="item"></cart-list-item>
+                      :product="item"
+                      @refreshScroll="refreshScroll"></cart-list-item>
     </div>
   </scroll>
 </template>
@@ -24,21 +25,25 @@ export default {
       'cartList'
     ])
   },
+  methods:{
+    refreshScroll() {
+      this.$refs.scroll.scroll.refresh()
+    }
+  },
   activated() {
     this.$refs.scroll.scroll.refresh()
   },
-  updated() {
-    this.$refs.scroll.scroll.refresh()
-  }
+  // updated() {
+  //   this.$refs.scroll.scroll.refresh()
+  // }
 }
 </script>
 
 <style scoped>
 .cart-list {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
-  height: 100%;
 }
 .cart-scroll {
   position: relative;

@@ -121,6 +121,9 @@ export default {
     this.getHomeGoods('sell');
 
   },
+  activated() {
+    this.$refs.scroll.scroll.refresh()
+  }
 
 }
 </script>
