@@ -9,6 +9,8 @@ import 'swiper/css/swiper.css'
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 
+Vue.prototype.$eventBus = new Vue();
+
 new Vue({
   router,
   store,

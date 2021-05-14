@@ -3,47 +3,61 @@
   <nav-bar class="nav-bar">
     <template v-slot:center><div class="center">购物车({{cartLength}})</div></template>
   </nav-bar>
-  <scroll :probe-type="3"
-          class="cart-scroll"
-          ref="scroll">
-    <cart-list></cart-list>
-  </scroll>
+  <cart-list></cart-list>
+  <cart-bottom-bar class="bottom"></cart-bottom-bar>
+  <div class="em"></div>
 </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 import NavBar from 'components/common/navbar/NavBar'
-import Scroll from 'components/common/scroll/Scroll'
+
 import CartList from './childComps/CartList'
+import CartBottomBar from './childComps/CartBottomBar.vue'
 
 export default {
   name: "Cart",
   components:{
     NavBar,
-    Scroll,
-    CartList
+    CartList,
+    CartBottomBar
+  },
+  methods:{
   },
   computed:{
     ...mapGetters([
       'cartLength'
     ])
   },
-  activated() {
-    this.$refs.scroll.scroll.refresh()
-  }
 }
 </script>
 
 <style scoped>
+#cart {
+  position: relative;
+  padding: 5px;
+  height: 100vh;
+}
+
 .nav-bar {
   background-color: #ff5777;
 }
 .center {
   color: #fff;
 }
-.cart-scroll {
+
+.bottom {
   position: relative;
-  height: calc( 100vh - 44px - 49px );
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  height: 40px;
+  bottom: 7px;
+}
+.em {
+  clear: both;
+  height: 0;
 }
 </style>

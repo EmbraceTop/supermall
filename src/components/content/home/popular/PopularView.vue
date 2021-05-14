@@ -15,7 +15,7 @@ export default {
 <style>
 .popular {
   position: relative;
-  top: 44px;
+  top: 0px;
   width: 100%;
   height: 300px;
   padding-bottom: 0;

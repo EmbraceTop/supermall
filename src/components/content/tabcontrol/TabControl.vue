@@ -36,7 +36,7 @@ export default {
   display: flex;
   text-align: center;
   position: relative;
-  top: 44px;
+  top: 0px;
   height: 40px;
   font-size: 15px;
   background-color: #fff;

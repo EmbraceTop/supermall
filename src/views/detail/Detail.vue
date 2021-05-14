@@ -108,7 +108,8 @@ export default {
     product.title = this.goods.title;
     product.desc = this.goods.desc;
     product.price = this.goods.realPrice;
-    product.iid = this.iid
+    product.iid = this.iid;
+    product.checked = false
 
     this.$store.dispatch('addCart',product)
   }

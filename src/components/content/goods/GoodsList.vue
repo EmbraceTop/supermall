@@ -27,7 +27,7 @@ export default {
 .goods-list {
   display: flex;
   position: relative;
-  top: 44px;
+  top: 0px;
   flex-wrap: wrap;
 }
 
