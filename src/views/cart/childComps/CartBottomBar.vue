@@ -70,9 +70,9 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  left: 0;
+  left: 5px;
   height: 100%;
-  width: 16%
+  width: 20%
 }
 
 .selector p {
@@ -94,7 +94,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22%;
+  width: 20%;
   height: 100%;
   background-color: rgb(255,190,220);
 }

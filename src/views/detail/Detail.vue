@@ -37,6 +37,8 @@ import {BACKTOP_DISTANCE} from '@/common/const'
 
 import {getDetail,getRecommend,Goods,Shop,GoodsParam} from 'network/detail'
 
+import {mapActions} from 'vuex'
+
 export default {
   name: "Detail",
   components:{
@@ -51,7 +53,7 @@ export default {
     DetailBottomBar,
 
     getDetail,
-    Scroll
+    Scroll,
   },
   mixins: [backTopMixin],
   data() {
@@ -65,10 +67,16 @@ export default {
       commentInfo: {},
       recommendInfo: [],
       scrollTopY: [],
-      currentIndex: 0
+      currentIndex: 0,
+      message:'',
+      toastShow: false
     }
   },
   methods: {
+    ...mapActions([
+      'addCart'
+    ]),
+
     // 监听商品图片的加载，刷新better-scroll的高度
     imageLoad() {
       this.$refs.scroll.scroll.refresh();
@@ -111,7 +119,9 @@ export default {
     product.iid = this.iid;
     product.checked = false
 
-    this.$store.dispatch('addCart',product)
+    this.addCart(product).then(res => {
+      this.$toast.show(res,1000)
+    })
   }
 },
   created() {
